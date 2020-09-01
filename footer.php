@@ -1,11 +1,11 @@
-	<div class="footer section large-padding bg-dark">
-
+	<div class="footer section large-padding color-bg-four footer-bg-image">
 		<div class="footer-inner section-inner">
+
 
 
 			<?php if ( is_active_sidebar( 'footer-a' ) ) : ?>
 
-				<div class="column column-1 left">
+				<div class="column column-1 left footer-widget">
 
 					<div class="widgets">
 
@@ -19,7 +19,7 @@
 
 			<?php if ( is_active_sidebar( 'footer-b' ) ) : ?>
 
-				<div class="column column-2 left">
+				<div class="column column-2 left footer-widget">
 
 					<div class="widgets">
 
@@ -33,7 +33,7 @@
 
 			<?php if ( is_active_sidebar( 'footer-c' ) ) : ?>
 
-				<div class="column column-3 left">
+				<div class="column column-3 left footer-widget">
 
 					<div class="widgets">
 
@@ -51,15 +51,14 @@
 
 	</div> <!-- /footer -->
 
-	<div class="credits section bg-dark no-padding">
+	<div class="credits section no-padding">
 
-		<div class="credits-inner section-inner">
-
-			<p class="credits-left">
+		<div class="credits-inner">
+			<div class="credits-left credit-by-field" style="background: <?php echo get_theme_mod('accent_color', '#B22056')?>">
 
 				&copy; <?php echo date("Y") ?> <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>
 
-			</p>
+			</div>
 
 			<?php if ( is_active_sidebar( 'footer-menu' ) ) : ?>
 

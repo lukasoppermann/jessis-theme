@@ -38,13 +38,13 @@
 		
 		<span class="date-sep"> / </span>
 		
-		<?php comments_popup_link( '<span class="comment">' . __( '0 Comments', 'hemingway' ) . '</span>', __( '1 Comment', 'hemingway' ), __( '% Comments', 'hemingway' ) ); ?>
+		<?php comments_popup_link( '<span class="comment">' . __( '0 Comments', 'jessica' ) . '</span>', __( '1 Comment', 'jessica' ), __( '% Comments', 'jessica' ) ); ?>
 		
 		<?php if( is_sticky() && !has_post_thumbnail() ) { ?> 
 		
 			<span class="date-sep"> / </span>
 		
-			<?php _e('Sticky', 'hemingway'); ?>
+			<?php _e('Sticky', 'jessica'); ?>
 		
 		<?php } ?>
 		
@@ -52,7 +52,7 @@
 		
 			<span class="date-sep"> / </span>
 						
-			<?php edit_post_link(__('Edit', 'hemingway')); ?>
+			<?php edit_post_link(__('Edit', 'jessica')); ?>
 		
 		<?php } ?>
 								

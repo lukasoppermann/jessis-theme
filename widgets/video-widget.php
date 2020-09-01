@@ -1,11 +1,11 @@
 <?php 
 
-// Video widget for hemingway WordPress theme
+// Video widget for jessica WordPress theme
 
-class hemingway_video_widget extends WP_Widget {
+class jessica_video_widget extends WP_Widget {
 
-	function hemingway_video_widget() {
-		parent::WP_Widget(false, $name = 'Video widget', array('description' => __('Displays a video of your choosing.', 'hemingway') ));	
+	function jessica_video_widget() {
+		parent::WP_Widget(false, $name = 'Video widget', array('description' => __('Displays a video of your choosing.', 'jessica') ));	
 	}
 	
 	function widget($args, $instance) {
@@ -61,17 +61,17 @@ class hemingway_video_widget extends WP_Widget {
 		?>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php  _e('Title', 'hemingway'); ?>:
+			<label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php  _e('Title', 'jessica'); ?>:
 			<input id="<?php echo $this->get_field_id('widget_title'); ?>" name="<?php echo $this->get_field_name('widget_title'); ?>" type="text" class="widefat" value="<?php echo $widget_title; ?>" /></label>
 		</p>
 		
 				
 		<p>
-			<label for="<?php echo $this->get_field_id('video_url'); ?>"><?php  _e('Video URL', 'hemingway'); ?>:
+			<label for="<?php echo $this->get_field_id('video_url'); ?>"><?php  _e('Video URL', 'jessica'); ?>:
 			<input id="<?php echo $this->get_field_id('video_url'); ?>" name="<?php echo $this->get_field_name('video_url'); ?>" type="text" class="widefat" value="<?php echo $video_url; ?>" /></label>
 		</p>
 						
 		<?php
 	}
 }
-register_widget('hemingway_video_widget'); ?>
+register_widget('jessica_video_widget'); ?>

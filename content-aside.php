@@ -6,7 +6,7 @@
 		
 		<span class="date-sep"> / </span>
 	
-		<?php _e('Sticky', 'hemingway'); ?>
+		<?php _e('Sticky', 'jessica'); ?>
 	
 	<?php } ?>
 	
@@ -14,7 +14,7 @@
 	
 		<span class="date-sep"> / </span>
 					
-		<?php edit_post_link(__('Edit', 'hemingway')); ?>
+		<?php edit_post_link(__('Edit', 'jessica')); ?>
 	
 	<?php } ?>
 							

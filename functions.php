@@ -1,15 +1,15 @@
 <?php
 
 // Theme setup
-add_action( 'after_setup_theme', 'hemingway_setup' );
+add_action( 'after_setup_theme', 'jessica_setup' );
 
-function hemingway_setup() {
+function jessica_setup() {
 
 	// Automatic feed
 	add_theme_support( 'automatic-feed-links' );
 
 	// Custom background
-	add_theme_support( 'custom-background' );
+	// add_theme_support( 'custom-background' );
 
 	// Post thumbnails
 	add_theme_support( 'post-thumbnails' );
@@ -21,7 +21,7 @@ function hemingway_setup() {
 	// Custom header
 	$args = array(
 		'width'         => 1280,
-		'height'        => 416,
+		'height'        => 550,
 		'default-image' => get_template_directory_uri() . '/images/header.jpg',
 		'uploads'       => true,
 		'header-text'  	=> false
@@ -33,7 +33,7 @@ function hemingway_setup() {
 	register_nav_menu( 'primary', 'Primary Menu' );
 
 	// Make the theme translation ready
-	load_theme_textdomain('hemingway', get_template_directory() . '/languages');
+	load_theme_textdomain('jessica', get_template_directory() . '/languages');
 
 	$locale = get_locale();
 	$locale_file = get_template_directory() . "/languages/$locale.php";
@@ -43,84 +43,85 @@ function hemingway_setup() {
 }
 
 // Enqueue Javascript files
-function hemingway_load_javascript_files() {
+function jessica_load_javascript_files() {
 
 	if ( !is_admin() )
-		wp_register_script( 'hemingway_global', get_template_directory_uri().'/js/global.js', array('jquery'), '', true );
+		wp_register_script( 'jessica_global', get_template_directory_uri().'/js/global.js', array('jquery'), '', true );
 
-		wp_enqueue_script( 'hemingway_global' );
+		wp_enqueue_script( 'jessica_global' );
 }
 
-add_action( 'wp_enqueue_scripts', 'hemingway_load_javascript_files' );
+add_action( 'wp_enqueue_scripts', 'jessica_load_javascript_files' );
 
 
 // Enqueue styles
-function hemingway_load_style() {
+function jessica_load_style() {
 	if ( !is_admin() )
-	    wp_register_style('hemingway_googleFonts',  '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Raleway:700,400' );
-		wp_register_style('hemingway_style', get_stylesheet_uri() );
+	    wp_register_style('jessica_googleFonts',  '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' );
+		wp_register_style('jessica_style', get_stylesheet_uri() );
 
-	    wp_enqueue_style( 'hemingway_googleFonts' );
-	    wp_enqueue_style( 'hemingway_style' );
+	    wp_enqueue_style( 'jessica_googleFonts' );
+	    wp_enqueue_style( 'jessica_style' );
 }
 
-add_action('wp_print_styles', 'hemingway_load_style');
+add_action('wp_print_styles', 'jessica_load_style');
 
 
 // Add editor styles
-function hemingway_add_editor_styles() {
-    add_editor_style( 'hemingway-editor-style.css' );
-    $font_url = '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Raleway:700,400';
+function jessica_add_editor_styles() {
+    add_editor_style( 'jessica-editor-style.css' );
+    $font_url = '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic';
     add_editor_style( str_replace( ',', '%2C', $font_url ) );
 }
-add_action( 'init', 'hemingway_add_editor_styles' );
+add_action( 'init', 'jessica_add_editor_styles' );
 
 
 // Add footer widget areas
-add_action( 'widgets_init', 'hemingway_sidebar_reg' );
+add_action( 'widgets_init', 'jessica_sidebar_reg' );
 
-function hemingway_sidebar_reg() {
-	register_sidebar(array(
-	  'name' => __( 'Footer Menu', 'hemingway' ),
-	  'id' => 'footer-menu',
-	  'description' => __( 'Widgets in this area will be shown above the columns in the footer.', 'hemingway' ),
-	  'before_title' => '<h3 class="widget-title">',
-	  'after_title' => '</h3>',
-	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-	  'after_widget' => '</div><div class="clear"></div></div>'
-	));
+function jessica_sidebar_reg() {
 
 	register_sidebar(array(
-	  'name' => __( 'Footer A', 'hemingway' ),
+	  'name' => __( 'Footer A', 'jessica' ),
 	  'id' => 'footer-a',
-	  'description' => __( 'Widgets in this area will be shown in the left column in the footer.', 'hemingway' ),
+	  'description' => __( 'Widgets in this area will be shown in the left column in the footer.', 'jessica' ),
 	  'before_title' => '<h3 class="widget-title">',
 	  'after_title' => '</h3>',
 	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
 	  'after_widget' => '</div><div class="clear"></div></div>'
 	));
 	register_sidebar(array(
-	  'name' => __( 'Footer B', 'hemingway' ),
+	  'name' => __( 'Footer B', 'jessica' ),
 	  'id' => 'footer-b',
-	  'description' => __( 'Widgets in this area will be shown in the middle column in the footer.', 'hemingway' ),
+	  'description' => __( 'Widgets in this area will be shown in the middle column in the footer.', 'jessica' ),
 	  'before_title' => '<h3 class="widget-title">',
 	  'after_title' => '</h3>',
 	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
 	  'after_widget' => '</div><div class="clear"></div></div>'
 	));
 	register_sidebar(array(
-	  'name' => __( 'Footer C', 'hemingway' ),
+	  'name' => __( 'Footer C', 'jessica' ),
 	  'id' => 'footer-c',
-	  'description' => __( 'Widgets in this area will be shown in the right column in the footer.', 'hemingway' ),
+	  'description' => __( 'Widgets in this area will be shown in the right column in the footer.', 'jessica' ),
 	  'before_title' => '<h3 class="widget-title">',
 	  'after_title' => '</h3>',
 	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
 	  'after_widget' => '</div><div class="clear"></div></div>'
 	));
 	register_sidebar(array(
-	  'name' => __( 'Sidebar', 'hemingway' ),
+	  'name' => __( 'Sidebar', 'jessica' ),
 	  'id' => 'sidebar',
-	  'description' => __( 'Widgets in this area will be shown in the sidebar.', 'hemingway' ),
+	  'description' => __( 'Widgets in this area will be shown in the sidebar.', 'jessica' ),
+	  'before_title' => '<h3 class="widget-title">',
+	  'after_title' => '</h3>',
+	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
+	  'after_widget' => '</div><div class="clear"></div></div>'
+	));
+
+	register_sidebar(array(
+	  'name' => __( 'Footer Menu', 'jessica' ),
+	  'id' => 'footer-menu',
+	  'description' => __( 'Widgets in this area will be shown above the columns in the footer.', 'jessica' ),
 	  'before_title' => '<h3 class="widget-title">',
 	  'after_title' => '</h3>',
 	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
@@ -129,7 +130,6 @@ function hemingway_sidebar_reg() {
 }
 
 // Add theme widgets
-require_once (get_template_directory() . "/widgets/flickr-widget.php");
 require_once (get_template_directory() . "/widgets/video-widget.php");
 
 
@@ -138,7 +138,7 @@ if ( ! isset( $content_width ) ) $content_width = 676;
 
 
 // Custom title function
-function hemingway_wp_title( $title, $sep ) {
+function jessica_wp_title( $title, $sep ) {
 	global $paged, $page;
 
 	if ( is_feed() )
@@ -154,27 +154,27 @@ function hemingway_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary.
 	if ( $paged >= 2 || $page >= 2 )
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'hemingway' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'jessica' ), max( $paged, $page ) );
 
 	return $title;
 }
-add_filter( 'wp_title', 'hemingway_wp_title', 10, 2 );
-
+add_filter( 'wp_title', 'jessica_wp_title', 10, 2 );
+add_filter('widget_text', 'do_shortcode');
 
 // Add classes to next_posts_link and previous_posts_link
-add_filter('next_posts_link_attributes', 'hemingway_posts_link_attributes_1');
-add_filter('previous_posts_link_attributes', 'hemingway_posts_link_attributes_2');
+add_filter('next_posts_link_attributes', 'jessica_posts_link_attributes_1');
+add_filter('previous_posts_link_attributes', 'jessica_posts_link_attributes_2');
 
-function hemingway_posts_link_attributes_1() {
+function jessica_posts_link_attributes_1() {
     return 'class="post-nav-older"';
 }
-function hemingway_posts_link_attributes_2() {
+function jessica_posts_link_attributes_2() {
     return 'class="post-nav-newer"';
 }
 
 
 // Menu walker adding "has-children" class to menu li's with children menu items
-class hemingway_nav_walker extends Walker_Nav_Menu {
+class jessica_nav_walker extends Walker_Nav_Menu {
     function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
         $id_field = $this->db_fields['id'];
         if ( !empty( $children_elements[ $element->$id_field ] ) ) {
@@ -186,9 +186,9 @@ class hemingway_nav_walker extends Walker_Nav_Menu {
 
 
 // Add class to body if the post/page has a featured image
-add_action('body_class', 'hemingway_if_featured_image_class' );
+add_action('body_class', 'jessica_if_featured_image_class' );
 
-function hemingway_if_featured_image_class($classes) {
+function jessica_if_featured_image_class($classes) {
      global $post;
      if ( isset( $post ) && has_post_thumbnail() ) {
              $classes[] = 'has-featured-image';
@@ -198,18 +198,18 @@ function hemingway_if_featured_image_class($classes) {
 
 
 // Custom more-link text
-add_filter( 'the_content_more_link', 'hemingway_custom_more_link', 10, 2 );
+add_filter( 'the_content_more_link', 'jessica_custom_more_link', 10, 2 );
 
-function hemingway_custom_more_link( $more_link, $more_link_text ) {
-	return str_replace( $more_link_text, __('Continue reading', 'hemingway'), $more_link );
+function jessica_custom_more_link( $more_link, $more_link_text ) {
+	return str_replace( $more_link_text, __('Weiterlesen', 'jessica'), $more_link );
 }
 
 
 // Remove inline styling of attachment
-add_shortcode('wp_caption', 'hemingway_fixed_img_caption_shortcode');
-add_shortcode('caption', 'hemingway_fixed_img_caption_shortcode');
+add_shortcode('wp_caption', 'jessica_fixed_img_caption_shortcode');
+add_shortcode('caption', 'jessica_fixed_img_caption_shortcode');
 
-function hemingway_fixed_img_caption_shortcode($attr, $content = null) {
+function jessica_fixed_img_caption_shortcode($attr, $content = null) {
 	if ( ! isset( $attr['caption'] ) ) {
 		if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
 			$content = $matches[1];
@@ -235,7 +235,7 @@ function hemingway_fixed_img_caption_shortcode($attr, $content = null) {
 }
 
 // Style the admin area
-function hemingway_custom_colors() {
+function jessica_custom_colors() {
    echo '<style type="text/css">
 
 #postimagediv #set-post-thumbnail img {
@@ -246,12 +246,12 @@ function hemingway_custom_colors() {
          </style>';
 }
 
-add_action('admin_head', 'hemingway_custom_colors');
+add_action('admin_head', 'jessica_custom_colors');
 
 
-// hemingway comment function
-if ( ! function_exists( 'hemingway_comment' ) ) :
-function hemingway_comment( $comment, $args, $depth ) {
+// jessica comment function
+if ( ! function_exists( 'jessica_comment' ) ) :
+function jessica_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
@@ -260,7 +260,7 @@ function hemingway_comment( $comment, $args, $depth ) {
 
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
 
-		<?php __( 'Pingback:', 'hemingway' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'hemingway' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php __( 'Pingback:', 'jessica' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'jessica' ), '<span class="edit-link">', '</span>' ); ?>
 
 	</li>
 	<?php
@@ -280,7 +280,7 @@ function hemingway_comment( $comment, $args, $depth ) {
 
 					<?php printf( '<cite class="fn">%1$s %2$s</cite>',
 						get_comment_author_link(),
-						( $comment->user_id === $post->post_author ) ? '<span class="post-author"> ' . __( '(Post author)', 'hemingway' ) . '</span>' : ''
+						( $comment->user_id === $post->post_author ) ? '<span class="post-author"> ' . __( '(Post author)', 'jessica' ) . '</span>' : ''
 					); ?>
 
 					<p><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php echo get_comment_date() . ' at ' . get_comment_time() ?></a></p>
@@ -293,7 +293,7 @@ function hemingway_comment( $comment, $args, $depth ) {
 
 				<?php if ( '0' == $comment->comment_approved ) : ?>
 
-					<p class="comment-awaiting-moderation"><?php _e( 'Awaiting moderation', 'hemingway' ); ?></p>
+					<p class="comment-awaiting-moderation"><?php _e( 'Awaiting moderation', 'jessica' ); ?></p>
 
 				<?php endif; ?>
 
@@ -301,9 +301,9 @@ function hemingway_comment( $comment, $args, $depth ) {
 
 				<div class="comment-actions">
 
-					<?php edit_comment_link( __( 'Edit', 'hemingway' ), '', '' ); ?>
+					<?php edit_comment_link( __( 'Edit', 'jessica' ), '', '' ); ?>
 
-					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'hemingway' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'jessica' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 
 					<div class="clear"></div>
 
@@ -321,7 +321,7 @@ endif;
 // Add and save meta boxes for post links
 add_action( 'add_meta_boxes', 'cd_meta_box_add' );
 function cd_meta_box_add() {
-	add_meta_box( 'postvideo-box', __('Video URL (video post format)', 'hemingway'), 'cd_meta_box_cc', 'post', 'side', 'high' );
+	add_meta_box( 'postvideo-box', __('Video URL (video post format)', 'jessica'), 'cd_meta_box_cc', 'post', 'side', 'high' );
 }
 
 function cd_meta_box_cc( $post ) {
@@ -360,56 +360,134 @@ function cd_meta_box_save( $post_id ) {
 }
 
 
-// Hemingway theme options
+// jessica theme options
 
-class Hemingway_Customize {
+class jessica_Customize {
 
    public static function register ( $wp_customize ) {
 
       //1. Define a new section (if desired) to the Theme Customizer
-      $wp_customize->add_section( 'hemingway_options',
+      $wp_customize->add_section( 'jessica_options',
          array(
-            'title' => __( 'Hemingway Options', 'hemingway' ), //Visible title of section
+            'title' => __( 'jessica Options', 'jessica' ), //Visible title of section
             'priority' => 35, //Determines what order this appears in
             'capability' => 'edit_theme_options', //Capability needed to tweak
-            'description' => __('Allows you to customize some settings for Hemingway.', 'hemingway'), //Descriptive tooltip
+            'description' => __('Allows you to customize some settings for jessica.', 'jessica'), //Descriptive tooltip
          )
       );
-
-      $wp_customize->add_section( 'hemingway_logo_section' , array(
-		    'title'       => __( 'Logo', 'hemingway' ),
-		    'priority'    => 40,
-		    'description' => __('Upload a logo to replace the default site name and description in the header','hemingway'),
-		) );
+      $wp_customize->add_section( 'jessica_footer_bg_section' , array(
+		    'title'       => __( 'Footer Hintergrund', 'jessica' ),
+		    'priority'    => 65,
+		    'description' => __('Hintergrundbild für den Footer','jessica'),
+			) );
 
       //2. Register new settings to the WP database...
       $wp_customize->add_setting( 'accent_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
          array(
-            'default' => '#1abc9c', //Default setting/value to save
+            'default' => '#B22056', //Default setting/value to save
             'type' => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
             'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
-            'transport' => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'transport' => 'refresh', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
          )
       );
 
-      $wp_customize->add_setting( 'hemingway_logo' );
+      $wp_customize->add_setting( 'second_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => '#e81b52', //Default setting/value to save
+            'type' => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport' => 'refresh', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+         )
+      );
+
+      $wp_customize->add_setting( 'third_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => '#ffa556', //Default setting/value to save
+            'type' => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport' => 'refresh', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+         )
+      );
+      $wp_customize->add_setting( 'fourth_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => '#a8cc4d', //Default setting/value to save
+            'type' => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport' => 'refresh', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+         )
+      );
+      $wp_customize->add_setting( 'fifths_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => '#89bc21', //Default setting/value to save
+            'type' => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport' => 'refresh', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+         )
+      );
+
+
+      $wp_customize->add_setting( 'jessica_logo' );
+
+			$wp_customize->add_setting( 'jessica_footer_bg' );
 
       //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
       $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
          $wp_customize, //Pass the $wp_customize object (required)
-         'hemingway_accent_color', //Set a unique ID for the control
+         'jessica_accent_color', //Set a unique ID for the control
          array(
-            'label' => __( 'Accent Color', 'hemingway' ), //Admin-visible name of the control
+            'label' => __( 'Primary Color', 'jessica' ), //Admin-visible name of the control
             'section' => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
             'settings' => 'accent_color', //Which setting to load and manipulate (serialized is okay)
-            'priority' => 10, //Determines the order this control appears in for the specified section
+         )
+      ) );
+      $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'jessica_second_color', //Set a unique ID for the control
+         array(
+            'label' => __( 'Second Color', 'jessica_2' ), //Admin-visible name of the control
+            'section' => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'second_color', //Which setting to load and manipulate (serialized is okay)
+         )
+      ) );
+      $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'jessica_third_color', //Set a unique ID for the control
+         array(
+            'label' => __( 'Third Color', 'jessica_3' ), //Admin-visible name of the control
+            'section' => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'third_color', //Which setting to load and manipulate (serialized is okay)
+         )
+      ) );
+      $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'jessica_fourth_color', //Set a unique ID for the control
+         array(
+            'label' => __( 'Fourth Color', 'jessica_4' ), //Admin-visible name of the control
+            'section' => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'fourth_color', //Which setting to load and manipulate (serialized is okay)
+         )
+      ) );
+      $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'jessica_fifth_color', //Set a unique ID for the control
+         array(
+            'label' => __( 'Fifth Color', 'jessica_5' ), //Admin-visible name of the control
+            'section' => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'fifths_color', //Which setting to load and manipulate (serialized is okay)
          )
       ) );
 
-      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'hemingway_logo', array(
-		    'label'    => __( 'Logo', 'hemingway' ),
-		    'section'  => 'hemingway_logo_section',
-		    'settings' => 'hemingway_logo',
+      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'jessica_logo', array(
+		    'label'    => __( 'Logo', 'jessica' ),
+		    'section'  => 'title_tagline',
+		    'settings' => 'jessica_logo',
+		) ) );
+
+
+	    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'jessica_footer_bg', array(
+		    'label'    => __( 'Footer Hintergrund', 'jessica' ),
+		    'section'  => 'jessica_footer_bg_section',
+		    'settings' => 'jessica_footer_bg',
 		) ) );
 
       //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
@@ -492,9 +570,6 @@ class Hemingway_Customize {
 	           <?php self::generate_css('.dribbble-shot:hover', 'background', 'accent_color'); ?>
 	           <?php self::generate_css('.widgetmore a', 'color', 'accent_color'); ?>
 	           <?php self::generate_css('.widgetmore a:hover', 'color', 'accent_color'); ?>
-	           <?php self::generate_css('.flickr_badge_image a:hover img', 'background', 'accent_color'); ?>
-	           <?php self::generate_css('.footer .flickr_badge_image a:hover img', 'background', 'accent_color'); ?>
-	           <?php self::generate_css('.footer .dribbble-shot:hover img', 'background', 'accent_color'); ?>
 	           <?php self::generate_css('.sidebar .tagcloud a:hover', 'background', 'accent_color'); ?>
 	           <?php self::generate_css('.footer .tagcloud a:hover', 'background', 'accent_color'); ?>
 	           <?php self::generate_css('.credits a:hover', 'color', 'accent_color'); ?>
@@ -510,7 +585,7 @@ class Hemingway_Customize {
 
    public static function live_preview() {
       wp_enqueue_script(
-           'hemingway-themecustomizer', // Give the script a unique ID
+           'jessica-themecustomizer', // Give the script a unique ID
            get_template_directory_uri() . '/js/theme-customizer.js', // Define the path to the JS file
            array(  'jquery', 'customize-preview' ), // Define dependencies
            '', // Define a version (optional)
@@ -536,12 +611,12 @@ class Hemingway_Customize {
 }
 
 // Setup the Theme Customizer settings and controls...
-add_action( 'customize_register' , array( 'Hemingway_Customize' , 'register' ) );
+add_action( 'customize_register' , array( 'jessica_Customize' , 'register' ) );
 
 // Output custom CSS to live site
-add_action( 'wp_head' , array( 'Hemingway_Customize' , 'header_output' ) );
+add_action( 'wp_head' , array( 'jessica_Customize' , 'header_output' ) );
 
 // Enqueue live preview javascript in Theme Customizer admin screen
-add_action( 'customize_preview_init' , array( 'Hemingway_Customize' , 'live_preview' ) );
+add_action( 'customize_preview_init' , array( 'jessica_Customize' , 'live_preview' ) );
 
 ?>

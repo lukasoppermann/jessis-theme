@@ -10,14 +10,14 @@
 			
 				<h4>
 			
-					<?php _e( 'Search results:', 'hemingway'); echo ' "' . get_search_query() . '"'; ?>
+					<?php _e( 'Search results:', 'jessica'); echo ' "' . get_search_query() . '"'; ?>
 				
 					<?php
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 					
 					if ( "1" < $wp_query->max_num_pages ) : ?>
 					
-						<span><?php printf( __('(page %s of %s)', 'hemingway'), $paged, $wp_query->max_num_pages ); ?></span>
+						<span><?php printf( __('(page %s of %s)', 'jessica'), $paged, $wp_query->max_num_pages ); ?></span>
 					
 					<?php endif; ?>
 				
@@ -43,9 +43,9 @@
 			
 				<div class="post-nav archive-nav">
 				
-					<?php echo get_next_posts_link( __('&laquo; Older<span> posts</span>', 'hemingway')); ?>
+					<?php echo get_next_posts_link( __('&laquo; Older<span> posts</span>', 'jessica')); ?>
 								
-					<?php echo get_previous_posts_link( __('Newer<span> posts</span> &raquo;', 'hemingway')); ?>
+					<?php echo get_previous_posts_link( __('Newer<span> posts</span> &raquo;', 'jessica')); ?>
 					
 					<div class="clear"></div>
 					
@@ -61,14 +61,14 @@
 			
 					<h4>
 				
-						<?php echo _e( 'Search results:', 'hemingway') . ' "' . get_search_query() . '"'; ?>
+						<?php echo _e( 'Search results:', 'jessica') . ' "' . get_search_query() . '"'; ?>
 					
 						<?php
 						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 						
 						if ( "1" < $wp_query->max_num_pages ) : ?>
 						
-							<span><?php printf( __('(page %s of %s)', 'hemingway'), $paged, $wp_query->max_num_pages ); ?></span>
+							<span><?php printf( __('(page %s of %s)', 'jessica'), $paged, $wp_query->max_num_pages ); ?></span>
 						
 						<?php endif; ?>
 						
@@ -84,7 +84,7 @@
 				
 						<div class="post-content">
 						
-							<p><?php _e('No results. Try again, would you kindly?', 'hemingway'); ?></p>
+							<p><?php _e('No results. Try again, would you kindly?', 'jessica'); ?></p>
 							
 							<?php get_search_form(); ?>
 						

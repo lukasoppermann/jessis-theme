@@ -76,8 +76,8 @@
 			$next_attachment_url = get_attachment_link( $attachments[ 0 ]->ID );
 		endif;
 		?>
-							<a href="<?php echo esc_url( $prev_attachment_url ); ?>" class="post-nav-older" rel="attachment"><?php _e('&laquo; Previous<span> attachment</span>', 'hemingway'); ?></a>
-							<a href="<?php echo esc_url( $next_attachment_url ); ?>" class="post-nav-newer" rel="attachment"><?php _e('Next<span> attachment</span> &raquo;', 'hemingway'); ?></a>
+							<a href="<?php echo esc_url( $prev_attachment_url ); ?>" class="post-nav-older" rel="attachment"><?php _e('&laquo; Previous<span> attachment</span>', 'jessica'); ?></a>
+							<a href="<?php echo esc_url( $next_attachment_url ); ?>" class="post-nav-newer" rel="attachment"><?php _e('Next<span> attachment</span> &raquo;', 'jessica'); ?></a>
 						
 							<div class="clear"></div>
 						
@@ -89,7 +89,7 @@
 																                        
 			   	<?php endwhile; else: ?>
 			
-					<p><?php _e("We couldn't find any posts that matched your query. Please try again.", "hemingway"); ?></p>
+					<p><?php _e("We couldn't find any posts that matched your query. Please try again.", "jessica"); ?></p>
 				
 				<?php endif; ?>    
 					

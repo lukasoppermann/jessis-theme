@@ -18,7 +18,7 @@
 				
 					<div class="page-title">
 					
-						<h4><?php printf( __('Page %s of %s', 'hemingway'), $paged, $wp_query->max_num_pages ); ?></h4>
+						<h4><?php printf( __('Page %s of %s', 'jessica'), $paged, $wp_query->max_num_pages ); ?></h4>
 						
 					</div>
 					
@@ -44,9 +44,9 @@
 		
 			<div class="post-nav archive-nav">
 						
-				<?php echo get_next_posts_link( __('&laquo; Older<span> posts</span>', 'hemingway')); ?>
+				<?php echo get_next_posts_link( __('&laquo; Older<span> posts</span>', 'jessica')); ?>
 							
-				<?php echo get_previous_posts_link( __('Newer<span> posts</span> &raquo;', 'hemingway')); ?>
+				<?php echo get_previous_posts_link( __('Newer<span> posts</span> &raquo;', 'jessica')); ?>
 				
 				<div class="clear"></div>
 				
